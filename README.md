@@ -11,3 +11,6 @@
 - Add categories  
 - Global search  
 - localStorage persistence  
+
+## Live Demo
+[Deployed Site](https://react-dashboard-assignment-software-trainee-757qjl4n8.vercel.app/)
