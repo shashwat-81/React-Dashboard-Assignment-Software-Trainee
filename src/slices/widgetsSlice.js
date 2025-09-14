@@ -38,15 +38,15 @@ const initialState = {
           type: 'bar',
           content: {
             data: [
-              { label: 'January', value1: 40, value2: 30, color1: 'var(--chart-blue)', color2: 'var(--chart-green)' },
-              { label: 'February', value1: 55, value2: 25, color1: 'var(--chart-blue)', color2: 'var(--chart-green)' },
-              { label: 'March', value1: 32, value2: 40, color1: 'var(--chart-blue)', color2: 'var(--chart-green)' },
-              { label: 'April', value1: 70, value2: 60, color1: 'var(--chart-blue)', color2: 'var(--chart-green)' },
-              { label: 'May', value1: 52, value2: 45, color1: 'var(--chart-blue)', color2: 'var(--chart-green)' }
+              { label: 'default', value1: 150, value2: 120, color1: 'var(--chart-red)', color2: 'var(--chart-orange)' },
+              { label: 'kube-system', value1: 90, value2: 85, color1: 'var(--chart-red)', color2: 'var(--chart-orange)' },
+              { label: 'monitoring', value1: 75, value2: 60, color1: 'var(--chart-red)', color2: 'var(--chart-orange)' },
+              { label: 'app-ns', value1: 45, value2: 40, color1: 'var(--chart-red)', color2: 'var(--chart-orange)' },
+              { label: 'logging', value1: 30, value2: 25, color1: 'var(--chart-red)', color2: 'var(--chart-orange)' }
             ],
             legend: [
-              { label: 'Current Year', color: 'var(--chart-blue)' },
-              { label: 'Previous Year', color: 'var(--chart-green)' }
+              { label: 'Current Period', color: 'var(--chart-red)' },
+              { label: 'Previous Period', color: 'var(--chart-orange)' }
             ]
           }
         },
@@ -85,24 +85,75 @@ const initialState = {
     },
     {
       id: '2',
-      name: 'CWPP Dashboard:',
+      name: 'CWPP Dashboard',
       widgets: [
         {
           id: '4',
           title: 'Top 5 Namespace Specific Alerts',
-          type: 'line',
+          type: 'bar',
           content: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-            datasets: []
+            data: [
+              { label: 'default', value1: 150, value2: 120, color1: 'var(--chart-red)', color2: 'var(--chart-orange)' },
+              { label: 'kube-system', value1: 90, value2: 85, color1: 'var(--chart-red)', color2: 'var(--chart-orange)' },
+              { label: 'monitoring', value1: 75, value2: 60, color1: 'var(--chart-red)', color2: 'var(--chart-orange)' },
+              { label: 'app-ns', value1: 45, value2: 40, color1: 'var(--chart-red)', color2: 'var(--chart-orange)' },
+              { label: 'logging', value1: 30, value2: 25, color1: 'var(--chart-red)', color2: 'var(--chart-orange)' }
+            ],
+            legend: [
+              { label: 'Current Period', color: 'var(--chart-red)' },
+              { label: 'Previous Period', color: 'var(--chart-orange)' }
+            ]
           }
         },
         {
           id: '5',
-          title: 'Workload Alerts',
+          title: 'Workload Alerts Trend',
           type: 'line',
           content: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-            datasets: []
+            datasets: [
+              {
+                label: 'Critical',
+                data: [45, 52, 38, 41, 35],
+                color: 'var(--chart-red)'
+              },
+              {
+                label: 'High',
+                data: [85, 92, 78, 81, 75],
+                color: 'var(--chart-orange)'
+              },
+              {
+                label: 'Medium',
+                data: [125, 132, 118, 121, 115],
+                color: 'var(--chart-yellow)'
+              }
+            ]
+          }
+        },
+        {
+          id: '6',
+          title: 'Runtime Security Status',
+          type: 'donut',
+          content: {
+            total: 850,
+            data: [
+              { label: 'Critical', value: 125, color: 'var(--chart-red)' },
+              { label: 'High', value: 225, color: 'var(--chart-orange)' },
+              { label: 'Medium', value: 300, color: 'var(--chart-yellow)' },
+              { label: 'Low', value: 200, color: 'var(--chart-green)' }
+            ]
+          }
+        },
+        {
+          id: '7',
+          title: 'Compliance Status',
+          type: 'progress',
+          content: {
+            data: [
+              { label: 'Compliant', value: 750, color: 'var(--chart-green)' },
+              { label: 'Non-Compliant', value: 180, color: 'var(--chart-red)' },
+              { label: 'In Progress', value: 70, color: 'var(--chart-yellow)' }
+            ]
           }
         }
       ]

@@ -20,11 +20,6 @@ const Dashboard = () => {
         <h1>CNAPP Dashboard</h1>
         <div className="header-controls">
           <SearchBar />
-          <div className="view-controls">
-            <button className="widget-button">
-              <span>Last 2 days</span>
-            </button>
-          </div>
         </div>
       </header>
       <div className="dashboard-content">
